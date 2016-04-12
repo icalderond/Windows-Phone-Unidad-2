@@ -1,0 +1,35 @@
+﻿<UserControl x:Class="Proyecto1_WP.SettingColor"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    mc:Ignorable="d"
+    FontFamily="{StaticResource PhoneFontFamilyNormal}"
+    FontSize="{StaticResource PhoneFontSizeNormal}"
+    Foreground="{StaticResource PhoneForegroundBrush}"
+    d:DesignHeight="480" d:DesignWidth="480">
+
+    <Grid x:Name="LayoutRoot" Background="{StaticResource PhoneChromeBrush}" DataContext="{Binding Source={StaticResource paint}}" >
+        <StackPanel Orientation="Horizontal" Margin="0,0,227,0">
+            <StackPanel DataContext="{Binding Mode=OneWay, Source={StaticResource paint}}" Width="242" >
+               <Slider Name="slideA" Value="{Binding AColor, Mode=TwoWay}"  Maximum="255" Minimum="0"  Foreground="#FF9E9290"/>
+                <Slider Value="{Binding RColor, Mode=TwoWay}" Maximum="255" Minimum="0" Foreground="Red"/>
+                <Slider Maximum="255" Minimum="0" Foreground="Green" Value="{Binding GColor, Mode=TwoWay}"/>
+                <Slider Maximum="255" Minimum="0" Value="{Binding BColor, Mode=TwoWay}" Foreground="Blue"/>
+                <TextBlock Text="Grosor de linea"/>
+                <Slider  Maximum="30" Minimum="5" Value="{Binding WidthLine, Mode=TwoWay}" Foreground="Blue"/>
+            </StackPanel>
+        </StackPanel>
+        <StackPanel Margin="258,0,0,0">
+            <StackPanel  Margin="0 10 0 0" >
+                <TextBlock Text="Hexadecimal"/>
+                <TextBlock Text="{Binding ColorString}"/>
+            </StackPanel>
+            <TextBlock Text="EscribeHexadecimal"/>
+            <TextBox Text="{Binding Hexadecimal, Mode=TwoWay}"/>
+            <Rectangle  Height="43"  Name="rectColor" Fill="{Binding ColorBinding}" Margin="10,0"/>
+            <Button Content="Set background" Command="{Binding SetColorBackgroundCommand}"/>
+            <Button Content="Set line brush" Command="{Binding SetColorLineCommand}"/>
+        </StackPanel>
+    </Grid>
+</UserControl>

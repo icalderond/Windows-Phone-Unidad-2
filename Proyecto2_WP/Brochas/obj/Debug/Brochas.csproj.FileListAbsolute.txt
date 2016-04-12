@@ -1,0 +1,4 @@
+C:\Users\Israel\Documents\Visual Studio 2013\Projects\Proyecto2_WP\Brochas\Bin\Debug\Brochas.dll
+C:\Users\Israel\Documents\Visual Studio 2013\Projects\Proyecto2_WP\Brochas\Bin\Debug\Brochas.pdb
+C:\Users\Israel\Documents\Visual Studio 2013\Projects\Proyecto2_WP\Brochas\obj\Debug\Brochas.dll
+C:\Users\Israel\Documents\Visual Studio 2013\Projects\Proyecto2_WP\Brochas\obj\Debug\Brochas.pdb

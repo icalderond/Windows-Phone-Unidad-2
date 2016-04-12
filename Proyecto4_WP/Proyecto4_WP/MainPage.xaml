@@ -1,0 +1,70 @@
+﻿<phone:PhoneApplicationPage
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:phone="clr-namespace:Microsoft.Phone.Controls;assembly=Microsoft.Phone"
+    xmlns:shell="clr-namespace:Microsoft.Phone.Shell;assembly=Microsoft.Phone"
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    xmlns:i="clr-namespace:System.Windows.Interactivity;assembly=System.Windows.Interactivity"
+    x:Class="Proyecto4_WP.MainPage"
+    mc:Ignorable="d"
+    SupportedOrientations="Portrait" Orientation="Portrait"
+    shell:SystemTray.IsVisible="True">
+    <phone:PhoneApplicationPage.Resources>
+        <Storyboard x:Name="StoryBoard_Giro1" RepeatBehavior="Forever">
+            <DoubleAnimation Duration="0:0:3" To="360" Storyboard.TargetProperty="(UIElement.RenderTransform).(CompositeTransform.Rotation)" Storyboard.TargetName="path" d:IsOptimized="True"/>
+        </Storyboard>
+        <Storyboard x:Name="StoryBoard_Giro2" RepeatBehavior="Forever">
+            <DoubleAnimation Duration="0:0:1.5" To="360" Storyboard.TargetProperty="(UIElement.RenderTransform).(CompositeTransform.Rotation)" Storyboard.TargetName="path" d:IsOptimized="True"/>
+        </Storyboard>
+        <Storyboard x:Name="StoryBoard_Giro3" RepeatBehavior="Forever">
+            <DoubleAnimation Duration="0:0:0.5" To="360" Storyboard.TargetProperty="(UIElement.RenderTransform).(CompositeTransform.Rotation)" Storyboard.TargetName="path" d:IsOptimized="True"/>
+        </Storyboard>
+    </phone:PhoneApplicationPage.Resources>
+    <!--LayoutRoot is the root grid where all page content is placed-->
+    <Grid x:Name="LayoutRoot" Background="Transparent" DataContext="{Binding Source={StaticResource fanControl}}">
+        <Grid.RowDefinitions>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="*"/>
+        </Grid.RowDefinitions>
+
+
+        <StackPanel x:Name="TitlePanel" Grid.Row="0" Margin="12,17,0,28">
+            <TextBlock Text="MY APPLICATION" Style="{StaticResource PhoneTextNormalStyle}" Margin="12,0"/>
+        </StackPanel>
+
+        <!--ContentPanel - place additional content here-->
+        <Grid x:Name="ContentPanel" Grid.Row="1" Margin="12,0,12,0">
+            <Path x:Name="path" Stretch="Uniform" Fill="{Binding Source={StaticResource PhoneAccentBrush}}" 
+				Data="F1 M 83.635,62.2591C 89.0101,60.3293 97.9776,59.1041 106.589,63.888C 121.229,72.017 134.988,59.6484 132.985,45.9518C 131.209,33.8151 123.715,21.4569 114.194,16.4921C 99.9566,9.07158 89.178,13.2018 80.8356,22.2565C 75.3733,28.1888 69.6599,38.6536 69.2171,48.6055C 69.0074,53.2903 63.5673,53.0443 62.2595,49.3932C 60.3284,44.0181 59.1032,35.0495 63.8844,26.4401C 72.0179,11.7981 59.6475,-1.96227 45.9528,0.0416107C 33.8141,1.8203 21.458,9.31255 16.4925,18.8359C 9.07132,33.0716 13.2008,43.8503 22.2556,52.1901C 28.1872,57.6549 38.6565,63.3711 48.6045,63.8137C 53.2914,64.0208 53.0445,69.461 49.3942,70.7681C 44.0167,72.7005 35.0472,73.927 26.4391,69.1432C 11.7979,61.0091 -1.9632,73.3815 0.0419922,87.0768C 1.81799,99.2161 9.31281,111.572 18.8369,116.536C 33.0725,123.958 43.8512,119.828 52.1911,110.773C 57.6553,104.842 63.3701,94.3749 63.8115,84.4258C 64.0205,79.737 69.4593,79.987 70.7692,83.6301C 72.6989,89.0091 73.9255,97.9779 69.1416,106.59C 61.0088,121.227 73.3785,134.988 87.0752,132.983C 99.2145,131.207 111.57,123.717 116.535,114.193C 123.959,99.9544 119.827,89.1796 110.772,80.8347C 104.842,75.3749 94.3708,69.6575 84.4255,69.2175C 79.738,69.0077 79.9853,63.569 83.635,62.2591 Z M 66.514,73.2787C 62.7796,73.2787 59.7516,70.25 59.7516,66.5156C 59.7516,62.7812 62.7796,59.7539 66.514,59.7539C 70.2497,59.7539 73.277,62.7812 73.277,66.5156C 73.277,70.25 70.2497,73.2787 66.514,73.2787 Z " Margin="0,126.5,51,115.522" UseLayoutRounding="False" RenderTransformOrigin="0.5,0.5">
+                <Path.Projection>
+                    <PlaneProjection RotationY="{Binding OscilationValue}" RotationX="{Binding OrientationValue}"/>
+                </Path.Projection>
+                <Path.RenderTransform>
+                    <CompositeTransform/>
+                </Path.RenderTransform>
+            </Path>
+            <Slider x:Name="slider" Orientation="Vertical" HorizontalAlignment="Left" 
+                    Margin="410,98,0,0" VerticalAlignment="Top" Height="254"
+                    Maximum="40" Minimum="-40"  Value="{Binding OrientationValue,Mode=TwoWay}"/>
+        </Grid>
+
+    </Grid>
+    <phone:PhoneApplicationPage.ApplicationBar>
+        <shell:ApplicationBar IsVisible="True" IsMenuEnabled="True">
+            <shell:ApplicationBarIconButton IconUri="/Assets/AppBar/zero.png" 
+                                            Text="off" Click="Button_Click"/>
+            <shell:ApplicationBarIconButton IconUri="/Assets/AppBar/one.png" 
+                                            Text="1" Click="Button_Click_1"/>
+            <shell:ApplicationBarIconButton IconUri="/Assets/AppBar/two.png" 
+                                            Text="2" Click="Button_Click_2"/>
+            <shell:ApplicationBarIconButton IconUri="/Assets/AppBar/three.png" 
+                                            Text="3" Click="Button_Click_3"/>
+
+            <shell:ApplicationBar.MenuItems>
+            <shell:ApplicationBarMenuItem Text="oscilar" Click="ApplicationBarMenuItem_Click"/>
+        </shell:ApplicationBar.MenuItems>
+        </shell:ApplicationBar>
+        
+    </phone:PhoneApplicationPage.ApplicationBar>
+</phone:PhoneApplicationPage>

@@ -1,0 +1,94 @@
+﻿<UserControl
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    xmlns:phone="clr-namespace:Microsoft.Phone.Controls;assembly=Microsoft.Phone" x:Class="ExamenU2.Views.Dados"
+    mc:Ignorable="d"
+    FontFamily="{StaticResource PhoneFontFamilyNormal}"
+    FontSize="{StaticResource PhoneFontSizeNormal}"
+    Foreground="{StaticResource PhoneForegroundBrush}"
+    d:DesignHeight="293.275" d:DesignWidth="480">
+    <UserControl.Resources>
+        <Storyboard x:Name="MueveDatos">
+            <DoubleAnimationUsingKeyFrames Storyboard.TargetProperty="(UIElement.RenderTransform).(CompositeTransform.TranslateX)" Storyboard.TargetName="cuadro1">
+                <EasingDoubleKeyFrame KeyTime="0:0:0.5" Value="10"/>
+                <EasingDoubleKeyFrame KeyTime="0:0:1" Value="1"/>
+                <EasingDoubleKeyFrame KeyTime="0:0:1.5" Value="-4"/>
+                <EasingDoubleKeyFrame KeyTime="0:0:2" Value="0"/>
+            </DoubleAnimationUsingKeyFrames>
+            <DoubleAnimationUsingKeyFrames Storyboard.TargetProperty="(UIElement.RenderTransform).(CompositeTransform.TranslateY)" Storyboard.TargetName="cuadro1">
+                <EasingDoubleKeyFrame KeyTime="0:0:0.5" Value="-80"/>
+                <EasingDoubleKeyFrame KeyTime="0:0:1" Value="-154"/>
+                <EasingDoubleKeyFrame KeyTime="0:0:1.5" Value="-2"/>
+                <EasingDoubleKeyFrame KeyTime="0:0:2" Value="0"/>
+            </DoubleAnimationUsingKeyFrames>
+            <DoubleAnimationUsingKeyFrames Storyboard.TargetProperty="(UIElement.RenderTransform).(CompositeTransform.TranslateX)" Storyboard.TargetName="cuadro2">
+                <EasingDoubleKeyFrame KeyTime="0:0:0.5" Value="29"/>
+                <EasingDoubleKeyFrame KeyTime="0:0:1" Value="33"/>
+                <EasingDoubleKeyFrame KeyTime="0:0:1.5" Value="-6"/>
+                <EasingDoubleKeyFrame KeyTime="0:0:2" Value="-10"/>
+                <EasingDoubleKeyFrame KeyTime="0:0:2.5" Value="0"/>
+            </DoubleAnimationUsingKeyFrames>
+            <DoubleAnimationUsingKeyFrames Storyboard.TargetProperty="(UIElement.RenderTransform).(CompositeTransform.TranslateY)" Storyboard.TargetName="cuadro2">
+                <EasingDoubleKeyFrame KeyTime="0:0:0.5" Value="-80"/>
+                <EasingDoubleKeyFrame KeyTime="0:0:1" Value="-127"/>
+                <EasingDoubleKeyFrame KeyTime="0:0:1.5" Value="-45"/>
+                <EasingDoubleKeyFrame KeyTime="0:0:2" Value="12"/>
+                <EasingDoubleKeyFrame KeyTime="0:0:2.5" Value="0"/>
+            </DoubleAnimationUsingKeyFrames>
+            <DoubleAnimationUsingKeyFrames Storyboard.TargetProperty="(UIElement.RenderTransform).(CompositeTransform.Rotation)" Storyboard.TargetName="cuadro2">
+                <EasingDoubleKeyFrame KeyTime="0:0:0.5" Value="-33.69"/>
+                <EasingDoubleKeyFrame KeyTime="0:0:1" Value="-90"/>
+                <EasingDoubleKeyFrame KeyTime="0:0:1.5" Value="-90"/>
+                <EasingDoubleKeyFrame KeyTime="0:0:2" Value="0"/>
+            </DoubleAnimationUsingKeyFrames>
+            <DoubleAnimationUsingKeyFrames Storyboard.TargetProperty="(UIElement.RenderTransform).(CompositeTransform.Rotation)" Storyboard.TargetName="cuadro1">
+                <EasingDoubleKeyFrame KeyTime="0:0:0.5" Value="-18.435"/>
+                <EasingDoubleKeyFrame KeyTime="0:0:1" Value="-60.945"/>
+                <EasingDoubleKeyFrame KeyTime="0:0:1.5" Value="-60.945"/>
+                <EasingDoubleKeyFrame KeyTime="0:0:2" Value="0"/>
+            </DoubleAnimationUsingKeyFrames>
+            <PointAnimationUsingKeyFrames Storyboard.TargetProperty="(UIElement.RenderTransformOrigin)" Storyboard.TargetName="cuadro2">
+                <EasingPointKeyFrame KeyTime="0:0:2" Value="0.5,0.5"/>
+                <EasingPointKeyFrame KeyTime="0:0:2.5" Value="0.5,0.5"/>
+            </PointAnimationUsingKeyFrames>
+        </Storyboard>
+    </UserControl.Resources>
+
+    <Grid x:Name="LayoutRoot" Height="297" VerticalAlignment="Bottom">
+        <StackPanel Margin="70,173,75,24" Orientation="Horizontal">
+            <Grid Background="White" x:Name="cuadro1" Width="100" Height="100" RenderTransformOrigin="0.5,0.5">
+                <Grid.RenderTransform>
+                    <CompositeTransform/>
+                </Grid.RenderTransform>
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="*"/>
+                    <ColumnDefinition Width="*"/>
+                    <ColumnDefinition Width="*"/>
+                </Grid.ColumnDefinitions>
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="*"/>
+                    <RowDefinition Height="*"/>
+                    <RowDefinition Height="*"/>
+                </Grid.RowDefinitions>
+            </Grid>
+            <TextBlock Foreground="{StaticResource ResourceKey=PhoneAccentBrush}" HorizontalAlignment="Center"  Margin="0,32,0,0" TextWrapping="Wrap" Text="{Binding OperacionAritmetica, Source={StaticResource gridGame}}" VerticalAlignment="Top" Height="22" Width="135"/>
+            <Grid Background="White" x:Name="cuadro2" Width="100" Height="100" RenderTransformOrigin="0.5,0.5">
+                <Grid.RenderTransform>
+                    <CompositeTransform/>
+                </Grid.RenderTransform>
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="*"/>
+                    <ColumnDefinition Width="*"/>
+                    <ColumnDefinition Width="*"/>
+                </Grid.ColumnDefinitions>
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="*"/>
+                    <RowDefinition Height="*"/>
+                    <RowDefinition Height="*"/>
+                </Grid.RowDefinitions>
+            </Grid>
+        </StackPanel>
+    </Grid>
+</UserControl>

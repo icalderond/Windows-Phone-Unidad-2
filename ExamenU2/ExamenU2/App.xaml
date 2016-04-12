@@ -1,0 +1,35 @@
+﻿<Application
+    x:Class="ExamenU2.App"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:phone="clr-namespace:Microsoft.Phone.Controls;assembly=Microsoft.Phone"
+    xmlns:shell="clr-namespace:Microsoft.Phone.Shell;assembly=Microsoft.Phone"
+    xmlns:toolkit="clr-namespace:Microsoft.Phone.Controls;assembly=Microsoft.Phone.Controls.Toolkit"
+    xmlns:logica="clr-namespace:ExamenU2.Logica">
+
+    <!--Application Resources-->
+    <Application.Resources>
+        <local:LocalizedStrings xmlns:local="clr-namespace:ExamenU2" x:Key="LocalizedStrings"/>
+        <logica:GridGame x:Key="gridGame"/>
+        <DataTemplate x:Key="dataTemplate">
+            <Border Width="40" Height="40" Background="Red" Margin="0,0,20,10">
+                <TextBlock Text="{Binding}" VerticalAlignment="Center" 
+                           HorizontalAlignment="Center"/>
+            </Border>
+        </DataTemplate>
+        <DataTemplate x:Key="dataTemplateSecond">
+            <Border Width="150" Height="40" Background="SkyBlue" Margin="0,0,20,10">
+                <TextBlock Text="{Binding}" VerticalAlignment="Center" 
+                           HorizontalAlignment="Center"/>
+            </Border>
+        </DataTemplate>
+    </Application.Resources>
+
+    <Application.ApplicationLifetimeObjects>
+        <!--Required object that handles lifetime events for the application-->
+        <shell:PhoneApplicationService
+            Launching="Application_Launching" Closing="Application_Closing"
+            Activated="Application_Activated" Deactivated="Application_Deactivated"/>
+    </Application.ApplicationLifetimeObjects>
+
+</Application>
